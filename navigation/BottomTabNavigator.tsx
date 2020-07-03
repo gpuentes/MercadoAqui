@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/Produto';
 import TabTwoScreen from '../screens/Servico';
+import TabStores from '../screens/Stores'
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -18,6 +19,13 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabOne"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      <BottomTab.Screen
+        name="Lojas"
+        component={TabStoresNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
@@ -44,7 +52,23 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
+const TabStoresStack = createStackNavigator<TabOneParamList>()
+
+
+function TabStoresNavigator() {
+  return (
+    <TabStoresStack.Navigator>
+      <TabStoresStack.Screen
+        name="TabOneScreen"
+        component={TabStores}
+        options={{ headerTitle: 'Tab One Title' }}
+      />
+    </TabStoresStack.Navigator>
+  );
+}
+
 const TabOneStack = createStackNavigator<TabOneParamList>();
+
 
 function TabOneNavigator() {
   return (
