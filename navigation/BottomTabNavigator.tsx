@@ -8,7 +8,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/Produto';
 import TabTwoScreen from '../screens/Servico';
 import TabStores from '../screens/Stores'
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import TabCategorys from '../screens/Categorys'
+import TabSearch from '../screens/Search'
+import TabFinish from '../screens/Finish'
+
+
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabStoresParamList, TabCategorysParamList, TabSearchParamList, TabFinishParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -17,7 +22,7 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Lojas"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="Lojas"
@@ -27,6 +32,27 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
+        name="Categorias"
+        component={TabCategorysNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Busca"
+        component={TabSearchNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Finalizar"
+        component={TabFinishNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      {/* <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
         options={{
@@ -39,7 +65,7 @@ export default function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
-      />
+      /> */}
     </BottomTab.Navigator>
   );
 }
@@ -52,46 +78,91 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabStoresStack = createStackNavigator<TabOneParamList>()
+const TabStoresStack = createStackNavigator<TabStoresParamList>()
 
 
 function TabStoresNavigator() {
   return (
     <TabStoresStack.Navigator>
       <TabStoresStack.Screen
-        name="TabOneScreen"
+        name="Lojas"
         component={TabStores}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Lojas' }}
       />
     </TabStoresStack.Navigator>
+  );
+}
+
+const TabCategorysStack = createStackNavigator<TabCategorysParamList>()
+
+
+function TabCategorysNavigator() {
+  return (
+    <TabCategorysStack.Navigator>
+      <TabCategorysStack.Screen
+        name="Categorias"
+        component={TabCategorys}
+        options={{ headerTitle: 'Categorias' }}
+      />
+    </TabCategorysStack.Navigator>
+  );
+}
+
+const TabSearchStack = createStackNavigator<TabSearchParamList>()
+
+
+function TabSearchNavigator() {
+  return (
+    <TabSearchStack.Navigator>
+      <TabSearchStack.Screen
+        name="Busca"
+        component={TabSearch}
+        options={{ headerTitle: 'Buscas' }}
+      />
+    </TabSearchStack.Navigator>
+  );
+}
+
+const TabFinishStack = createStackNavigator<TabFinishParamList>()
+
+
+function TabFinishNavigator() {
+  return (
+    <TabFinishStack.Navigator>
+      <TabFinishStack.Screen
+        name="Finalizar"
+        component={TabFinish}
+        options={{ headerTitle: 'Finalizar' }}
+      />
+    </TabFinishStack.Navigator>
   );
 }
 
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
 
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
+// function TabOneNavigator() {
+//   return (
+//     <TabOneStack.Navigator>
+//       <TabOneStack.Screen
+//         name="TabOneScreen"
+//         component={TabOneScreen}
+//         options={{ headerTitle: 'Tab One Title' }}
+//       />
+//     </TabOneStack.Navigator>
+//   );
+// }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+// const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator() {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
-      />
-    </TabTwoStack.Navigator>
-  );
-}
+// function TabTwoNavigator() {
+//   return (
+//     <TabTwoStack.Navigator>
+//       <TabTwoStack.Screen
+//         name="TabTwoScreen"
+//         component={TabTwoScreen}
+//         options={{ headerTitle: 'Tab Two Title' }}
+//       />
+//     </TabTwoStack.Navigator>
+//   );
+// }
