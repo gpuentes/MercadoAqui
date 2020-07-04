@@ -138,7 +138,7 @@ function TabFinishNavigator() {
   );
 }
 
-const TabOneStack = createStackNavigator<TabOneParamList>();
+// const TabOneStack = createStackNavigator<TabOneParamList>();
 
 
 // function TabOneNavigator() {

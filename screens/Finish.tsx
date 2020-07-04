@@ -9,7 +9,6 @@ export default function TabFinish(){
     <View style={styles.container}>
       <Text style={styles.title}>Finalizar</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/Finish.tsx" />
     </View>
   )
 }
@@ -19,6 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#eee'
   },
   title: {
     fontSize: 40,
@@ -28,5 +28,6 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+    backgroundColor: '#eee'
   },
 });
