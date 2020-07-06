@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img src="assets/img/logo.png" alt="Logo" width="200" height="80">
+  <img src="https://user-images.githubusercontent.com/17547586/86546806-ef170f00-bf0c-11ea-82ed-babea2e00144.png" alt="Logo" width="200" height="80">
   <h3 align="center">MERCADO AQUI</h3>
 </p>
 
